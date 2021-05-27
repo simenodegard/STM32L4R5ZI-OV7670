@@ -59,7 +59,7 @@ static void MX_LPUART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 //void Serial_com(char *s, uint32_t size);
 /* USER CODE END PFP */
-void i2c_check(void);
+
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
@@ -116,83 +116,31 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-//	reg_val = ov7670_read_return(0x0b);
-//	while(reg_val != 0x73)
-//	{
-//	  reg_val = ov7670_read_return(0x0b);
-//	  //ov7670_read(0x0b);
-//	  HAL_Delay(100);
-//	  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
-//	}
-//	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
+
 
   ov7670_read(0x0b); // read only register - version number
-  ov7670_reg_check(); // Prints 0xAA if all registers are sucessfully written
+  ov7670_reg_check(); // Prints 0xAA and lights Green LED if all registers are sucessfully written
   //ov7670_read_all_reg();
 
   while (1)
   {
-
-//	  ov7670_read(0x0b);
-//	  HAL_Delay(100);
-//	  reg_val = ov7670_read_return(0x0b);
-//	  if(reg_val == 0x73)
-//	  {
-//		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
-//		  HAL_Delay(200);
-//	  }else
-//	  {
-//		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
-//		  Serial_com(&myTxData[0], 1);
-//	  }
-	/*Write to the OV7670 camera */
-	  //add hard reset camera
-	 //ov7670_read(0x0b);
-	  //ov7670_read_all_reg();
-	  //ov7670_reg_check();
-	//HAL_DCMI_Stop(&hdcmi);
-
 
 	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
 
 	HAL_Delay(3000);
 
 	HAL_DCMI_Start_DMA(&hdcmi, DCMI_MODE_SNAPSHOT, (uint32_t) frame_buffer, RGB565_QVGA_SIZE);
-//
 
 
-//	  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
-//	  HAL_Delay(10000);
-	  //HAL_UART_Transmit(&hlpuart1, myTxData, 1, 10);
-	  //Serial_com(&frame_buffer[0], RGB565_QVGA_SIZE_8BIT);
-	  //HAL_Delay(1000);
-
-
-
+	/*Button pressed*/ //NOT IN USE ANYMORE
 //	if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13))
 //	{
-//		//ov7670_reg_check();
-////		HAL_DCMI_Stop(&hdcmi);
+//		HAL_DCMI_Stop(&hdcmi);
 //		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
 //		HAL_Delay(500);
-//
-//		//ov7670_read(0x0b);
-//		//HAL_Delay(500);
-//		//ov7670_read_all_reg();
-//		//buffer2[0] = reg[0][0];
-//
-//
-////		ov7670_read(buffer2[0]);
-////		ov7670_read(OV7670_reg[0][0]);
-////		ov7670_read(0x12);
-////		HAL_Delay(10);
-////		buffer2[0] = OV7670_reg[0][1];
-//		//HAL_UART_Transmit(&hlpuart1, buffer2, 1, 10);
-//
-////		HAL_DCMI_Start_DMA(&hdcmi, DCMI_MODE_SNAPSHOT, (uint32_t) frame_buffer, RGB565_QVGA_SIZE);
-////		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
-////		HAL_Delay(500);
-//
+//		HAL_DCMI_Start_DMA(&hdcmi, DCMI_MODE_SNAPSHOT, (uint32_t) frame_buffer, RGB565_QVGA_SIZE);
+//		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
+//		HAL_Delay(500);
 //	}
 
     /* USER CODE END WHILE */
@@ -384,7 +332,7 @@ static void MX_LPUART1_UART_Init(void)
 
   LL_DMA_SetChannelPriorityLevel(DMA1, LL_DMA_CHANNEL_1, LL_DMA_PRIORITY_HIGH);
 
-  LL_DMA_SetMode(DMA1, LL_DMA_CHANNEL_1, LL_DMA_MODE_CIRCULAR);
+  LL_DMA_SetMode(DMA1, LL_DMA_CHANNEL_1, LL_DMA_MODE_NORMAL);
 
   LL_DMA_SetPeriphIncMode(DMA1, LL_DMA_CHANNEL_1, LL_DMA_PERIPH_NOINCREMENT);
 
@@ -393,23 +341,6 @@ static void MX_LPUART1_UART_Init(void)
   LL_DMA_SetPeriphSize(DMA1, LL_DMA_CHANNEL_1, LL_DMA_PDATAALIGN_BYTE);
 
   LL_DMA_SetMemorySize(DMA1, LL_DMA_CHANNEL_1, LL_DMA_MDATAALIGN_BYTE);
-
-  /* LPUART1_RX Init */
-  LL_DMA_SetPeriphRequest(DMA1, LL_DMA_CHANNEL_3, LL_DMAMUX_REQ_LPUART1_RX);
-
-  LL_DMA_SetDataTransferDirection(DMA1, LL_DMA_CHANNEL_3, LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
-
-  LL_DMA_SetChannelPriorityLevel(DMA1, LL_DMA_CHANNEL_3, LL_DMA_PRIORITY_HIGH);
-
-  LL_DMA_SetMode(DMA1, LL_DMA_CHANNEL_3, LL_DMA_MODE_NORMAL);
-
-  LL_DMA_SetPeriphIncMode(DMA1, LL_DMA_CHANNEL_3, LL_DMA_PERIPH_NOINCREMENT);
-
-  LL_DMA_SetMemoryIncMode(DMA1, LL_DMA_CHANNEL_3, LL_DMA_MEMORY_INCREMENT);
-
-  LL_DMA_SetPeriphSize(DMA1, LL_DMA_CHANNEL_3, LL_DMA_PDATAALIGN_BYTE);
-
-  LL_DMA_SetMemorySize(DMA1, LL_DMA_CHANNEL_3, LL_DMA_MDATAALIGN_BYTE);
 
   /* LPUART1 interrupt Init */
   NVIC_SetPriority(LPUART1_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
@@ -453,9 +384,6 @@ static void MX_DMA_Init(void)
   /* DMA1_Channel2_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
-  /* DMA1_Channel3_IRQn interrupt configuration */
-  NVIC_SetPriority(DMA1_Channel3_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
-  NVIC_EnableIRQ(DMA1_Channel3_IRQn);
 
 }
 
@@ -535,7 +463,7 @@ void HAL_DCMI_FrameEventCallback(DCMI_HandleTypeDef *hdcmi)
   /* NOTE : This function should not be modified; when the callback is needed,
             the HAL_DCMI_FrameEventCallback() callback can be implemented in the user file.
    */
-  Serial_com(&frame_buffer[0], RGB565_QVGA_SIZE_8BIT);
+  Serial_com(&frame_buffer[0], RGB565_QVGA_SIZE_8BIT); //Send the Frame buffer to PC
 
 }
 

@@ -28,34 +28,34 @@ endif
 
 -include ../makefile.defs
 
-BUILD_ARTIFACT_NAME := Image_Capture_DCMI_LL
+BUILD_ARTIFACT_NAME := STM32L4R5ZI-OV7670
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX := 
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME).$(BUILD_ARTIFACT_EXTENSION)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-Image_Capture_DCMI_LL.elf \
+STM32L4R5ZI-OV7670.elf \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-Image_Capture_DCMI_LL.list \
+STM32L4R5ZI-OV7670.list \
 
 OBJCOPY_BIN += \
-Image_Capture_DCMI_LL.bin \
+STM32L4R5ZI-OV7670.bin \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: Image_Capture_DCMI_LL.elf secondary-outputs
+main-build: STM32L4R5ZI-OV7670.elf secondary-outputs
 
 # Tool invocations
-Image_Capture_DCMI_LL.elf: $(OBJS) $(USER_OBJS) C:\Users\Simen\STM32CubeIDE\workspace_1.5.1\Image_Capture_DCMI_LL\STM32L4R5ZITX_FLASH.ld
-	arm-none-eabi-gcc -o "Image_Capture_DCMI_LL.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Simen\STM32CubeIDE\workspace_1.5.1\Image_Capture_DCMI_LL\STM32L4R5ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Image_Capture_DCMI_LL.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+STM32L4R5ZI-OV7670.elf: $(OBJS) $(USER_OBJS) C:\Users\Simen\STM32CubeIDE\workspace_1.5.1\STM32L4R5ZI-OV7670\STM32L4R5ZITX_FLASH.ld
+	arm-none-eabi-gcc -o "STM32L4R5ZI-OV7670.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Simen\STM32CubeIDE\workspace_1.5.1\STM32L4R5ZI-OV7670\STM32L4R5ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L4R5ZI-OV7670.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -64,13 +64,13 @@ default.size.stdout: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Image_Capture_DCMI_LL.list: $(EXECUTABLES)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Image_Capture_DCMI_LL.list"
+STM32L4R5ZI-OV7670.list: $(EXECUTABLES)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "STM32L4R5ZI-OV7670.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Image_Capture_DCMI_LL.bin: $(EXECUTABLES)
-	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "Image_Capture_DCMI_LL.bin"
+STM32L4R5ZI-OV7670.bin: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "STM32L4R5ZI-OV7670.bin"
 	@echo 'Finished building: $@'
 	@echo ' '
 

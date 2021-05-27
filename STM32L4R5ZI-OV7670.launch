@@ -5,7 +5,7 @@
 <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.launch.enable_swv" value="false"/>
 <intAttribute key="com.st.stm32cube.ide.mcu.debug.launch.formatVersion" value="2"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.ip_address_local" value="localhost"/>
-<stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.loadList" value="{&quot;fItems&quot;:[{&quot;fIsFromMainTab&quot;:true,&quot;fPath&quot;:&quot;Debug\\Image_Capture_DCMI_LL.elf&quot;,&quot;fProjectName&quot;:&quot;Image_Capture_DCMI_LL&quot;,&quot;fPerformBuild&quot;:true,&quot;fDownload&quot;:true,&quot;fLoadSymbols&quot;:true}]}"/>
+<stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.loadList" value="{&quot;fItems&quot;:[{&quot;fIsFromMainTab&quot;:true,&quot;fPath&quot;:&quot;Debug\\STM32L4R5ZI-OV7670.elf&quot;,&quot;fProjectName&quot;:&quot;STM32L4R5ZI-OV7670&quot;,&quot;fPerformBuild&quot;:true,&quot;fDownload&quot;:true,&quot;fLoadSymbols&quot;:true}]}"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.override_start_address_mode" value="default"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.remoteCommand" value="target remote"/>
 <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.launch.startServer" value="true"/>
@@ -29,7 +29,7 @@
 <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.external_loader_init" value="false"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.frequency" value="0"/>
 <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.halt_all_on_reset" value="false"/>
-<stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.log_file" value="C:\Users\Simen\STM32CubeIDE\workspace_1.5.1\Image_Capture_DCMI_LL\Debug\st-link_gdbserver_log.txt"/>
+<stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.log_file" value="C:\Users\Simen\STM32CubeIDE\workspace_1.5.1\STM32L4R5ZI-OV7670\Debug\st-link_gdbserver_log.txt"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.low_power_debug" value="enable"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.max_halt_delay" value="2"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.reset_strategy" value="connect_under_reset"/>
@@ -58,12 +58,12 @@
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="remote"/>
 <booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN_SYMBOL" value="main"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug\Image_Capture_DCMI_LL.elf"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="Image_Capture_DCMI_LL"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug\STM32L4R5ZI-OV7670.elf"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="STM32L4R5ZI-OV7670"/>
 <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.527875320"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/Image_Capture_DCMI_LL"/>
+<listEntry value="/STM32L4R5ZI-OV7670"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="4"/>
