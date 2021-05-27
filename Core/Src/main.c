@@ -120,7 +120,7 @@ int main(void)
 
   ov7670_read(0x0b); // read only register - version number
   ov7670_reg_check(); // Prints 0xAA and lights Green LED if all registers are sucessfully written
-  //ov7670_read_all_reg();
+  ov7670_read_all_reg();
 
   while (1)
   {
