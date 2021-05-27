@@ -1,0 +1,7 @@
+ov7670.c:16:6:ov7670_read	32	static
+ov7670.c:24:6:ov7670_write	32	static
+ov7670.c:29:9:ov7670_read_return	32	static
+ov7670.c:38:6:ov7670_hard_reset	8	static
+ov7670.c:70:6:ov7670_init	16	static
+ov7670.c:86:6:ov7670_read_all_reg	16	static
+ov7670.c:98:6:ov7670_reg_check	24	static
